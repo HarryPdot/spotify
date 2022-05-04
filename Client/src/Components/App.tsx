@@ -7,13 +7,13 @@ const code = new URLSearchParams(window.location.search).get('code')
 
 function App() {
   return (
-    code ? <DashBoard code={code}></DashBoard> : <LogIn code={code}></LogIn>
+    <div className="App-centering">
+      <div className='App'>
+        <SideBar></SideBar>
+        {code ? <DashBoard code={code}></DashBoard> : <LogIn code={code}></LogIn>}
+      </div>
+    </div>
   );
 }
 
 export default App;
-    // <div className="App-centering">
-    //   <div className='App'>
-    //     <SideBar></SideBar>
-    //   </div>
-    // </div>

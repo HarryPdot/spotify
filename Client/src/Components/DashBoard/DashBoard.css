@@ -1,0 +1,17 @@
+.dashboard-container {
+    overflow-y: scroll;
+    width: 90%;
+    position: relative;
+}
+
+.flex-center {
+    width: 100%;
+
+    position:sticky;
+    bottom: 0;
+
+    display: flex;
+    justify-content: center;
+
+    background-color: white;
+}

@@ -1,5 +1,5 @@
 * {
-  overflow: hidden;
+
 }
 
 .App-centering {
@@ -15,4 +15,7 @@
   height: 90%;
   width: 90%;
   border: 1px solid black;
+  
+  display: flex;
+  flex-direction: row;
 }
