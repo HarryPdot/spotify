@@ -1,7 +1,7 @@
 import "./SideBar.css"
 import { useState, useEffect } from 'react'
 
-export default function SideBar() {
+export default function SideBar(props: {setSearchWindow: any}) {
 
     return(
         <div className="SideBar-container">
@@ -9,7 +9,7 @@ export default function SideBar() {
             <nav className="top-left-home-bar">
                 <ul>
                     <li>Home</li>
-                    <li>Search</li>
+                    <li onClick={() => props.setSearchWindow(true)}>Search</li>
                     <li>Your Library</li>
                 </ul>
                 <ul>

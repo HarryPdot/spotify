@@ -1,10 +1,8 @@
 import SpotifyPlayer from 'react-spotify-web-playback'
-import { useEffect } from 'react'
 import './Playback.css'
 
 export default function Playback(props: {accessToken: any, searchResults: any, selectedSong: any, setPlaySong: any, playSong: boolean}) {
     if(!props.accessToken) return null
-    console.log(props.playSong)
     return (
         <div className='spotifyPlayer-container'>
             <SpotifyPlayer 
@@ -18,11 +16,12 @@ export default function Playback(props: {accessToken: any, searchResults: any, s
                 }
             }}
             styles={{
-                bgColor:'#000000',
+                bgColor:'#171717',
                 color: '#FFFFFF',
                 trackNameColor: '#FFFFFF',
                 sliderColor: '#FFFFFF',
-                sliderHandleColor: '#FFFFFF'
+                sliderHandleColor: '#FFFFFF',
+                sliderTrackColor: '#282828',
             }}
             />
         </div>

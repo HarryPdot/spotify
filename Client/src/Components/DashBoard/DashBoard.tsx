@@ -16,10 +16,9 @@ export default function DashBoard(props: { code: any }) {
     const [searchResults, setSearchResults]: any = useState([])
     const [selectedSong, setSelectedSong] = useState()
     const [playSong, setPlaySong] = useState(false)
-    const [searchWindow, setSearchWindow] = useState(true)
+    const [searchWindow, setSearchWindow] = useState(false)
 
     useEffect(() => setPlaySong(true), [selectedSong])
-    console.log(playSong)
     useEffect(() => {
         if(!accessToken) return
         spotifyApi.setAccessToken(accessToken)
@@ -43,17 +42,16 @@ export default function DashBoard(props: { code: any }) {
         })
         return () => cancel = true
     }, [search, accessToken])
+
     return (
         <div className='dashboard-container'>
-            <SideBar></SideBar>
+            <SideBar setSearchWindow={setSearchWindow}></SideBar>
             <div className='wh-100 flex-btwn'>
                 <div className='window'>
                     {searchWindow ? <SearchTab search={search} setSelectedSong={setSelectedSong} searchResults={searchResults} setSearch={setSearch}></SearchTab> : null}   
                 </div>
                 <Playback accessToken={accessToken} setPlaySong={setPlaySong} playSong={playSong} searchResults={searchResults} selectedSong={selectedSong}></Playback>
             </div>
-
-
         </div>
     )
 }

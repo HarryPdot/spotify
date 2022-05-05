@@ -2,8 +2,8 @@ const AUTH_URL = "https://accounts.spotify.com/authorize?client_id=d686ce0a39674
 
 export default function LogIn(props: { code: any }) {
     return (
-        <div>
-            <a href={AUTH_URL}>Login with Spotify</a>
+        <div className="login-container">
+            <a className="login-style" href={AUTH_URL}>Login with Spotify</a>
         </div>
     );
 }
