@@ -1,7 +1,17 @@
 import "./SideBar.css"
 import { useState, useEffect } from 'react'
 
-export default function SideBar(props: {setSearchWindow: any}) {
+export default function SideBar(props: {setSearchWindow: any, setLikedSongsWindow: any}) {
+
+    const handleSearchWindow = () => {
+        props.setSearchWindow(true)
+        props.setLikedSongsWindow(false)
+    }
+
+    const handleLikedSongsWindow = () => {
+        props.setLikedSongsWindow(true)
+        props.setSearchWindow(false)
+    }
 
     return(
         <div className="SideBar-container">
@@ -9,12 +19,12 @@ export default function SideBar(props: {setSearchWindow: any}) {
             <nav className="top-left-home-bar">
                 <ul>
                     <li>Home</li>
-                    <li onClick={() => props.setSearchWindow(true)}>Search</li>
+                    <li onClick={handleSearchWindow}>Search</li>
                     <li>Your Library</li>
                 </ul>
                 <ul>
                     <li>Create Playlist</li>
-                    <li>Like Songs</li>
+                    <li onClick={handleLikedSongsWindow}>Like Songs</li>
                 </ul>
             </nav>
             <div className="SideBar-playlist">

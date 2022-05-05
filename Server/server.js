@@ -17,7 +17,6 @@ app.post('/refresh', (req, res) => {
     })
     spotifyApi.refreshAccessToken()
     .then(data => {
-        console.log(data.body)
         res.json({
             accessToken: data.body.access_token,
             expiresIn: data.body.expires_in
@@ -36,7 +35,6 @@ app.post('/login', (req, res) => {
     })
     spotifyApi.authorizationCodeGrant(code)
         .then(data => {
-            console.log(data)
             res.json({
                 accessToken: data.body.access_token,
                 refreshToken: data.body.refresh_token,
