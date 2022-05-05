@@ -1,17 +1,25 @@
 .dashboard-container {
-    overflow-y: scroll;
-    width: 90%;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+
     position: relative;
 }
 
-.flex-center {
+.window {
     width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
 
-    position:sticky;
-    bottom: 0;
+.wh-100 {
+    width: 100%;
+    height: 100%;
+}
 
+.flex-btwn {
     display: flex;
-    justify-content: center;
-
-    background-color: white;
+    flex-direction: column;
 }

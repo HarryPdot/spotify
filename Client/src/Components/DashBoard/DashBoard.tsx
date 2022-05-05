@@ -1,9 +1,10 @@
 import useAuth from '../useAuth/useAuth'
 import { useState, useEffect } from 'react'
 import SpotifyWebApi from 'spotify-web-api-node'
-import Tracklist from '../Tracklist/Tracklist'
 import './DashBoard.css'
 import Playback from "../Playback/Playback"
+import SideBar from '../SideBar/SideBar'
+import SearchTab from '../SearchTab/SearchTab'
 
 const spotifyApi = new SpotifyWebApi({
     clientId: 'd686ce0a39674c5eacd95c2640c83db2'
@@ -14,7 +15,11 @@ export default function DashBoard(props: { code: any }) {
     const [search, setSearch] = useState('')
     const [searchResults, setSearchResults]: any = useState([])
     const [selectedSong, setSelectedSong] = useState()
-    console.log(searchResults)
+    const [playSong, setPlaySong] = useState(false)
+    const [searchWindow, setSearchWindow] = useState(true)
+
+    useEffect(() => setPlaySong(true), [selectedSong])
+    console.log(playSong)
     useEffect(() => {
         if(!accessToken) return
         spotifyApi.setAccessToken(accessToken)
@@ -38,19 +43,16 @@ export default function DashBoard(props: { code: any }) {
         })
         return () => cancel = true
     }, [search, accessToken])
-
     return (
         <div className='dashboard-container'>
-            <input type="text" 
-            placeholder='Search Songs/Author' 
-            value={search} 
-            onChange={e => {
-                setSearch(e.target.value)
-            }}/>
-            <Tracklist searchResults={searchResults} setSelectedSong={setSelectedSong}></Tracklist>
-            <div className='flex-center'>
-                <Playback accessToken={accessToken} searchResults={searchResults} selectedSong={selectedSong}></Playback>
+            <SideBar></SideBar>
+            <div className='wh-100 flex-btwn'>
+                <div className='window'>
+                    {searchWindow ? <SearchTab search={search} setSelectedSong={setSelectedSong} searchResults={searchResults} setSearch={setSearch}></SearchTab> : null}   
+                </div>
+                <Playback accessToken={accessToken} setPlaySong={setPlaySong} playSong={playSong} searchResults={searchResults} selectedSong={selectedSong}></Playback>
             </div>
+
 
         </div>
     )

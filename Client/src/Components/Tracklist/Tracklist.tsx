@@ -1,10 +1,12 @@
 import './Tracklist.css'
+import { useEffect } from 'react'
+
 export default function Tracklist(props: {searchResults:any, setSelectedSong: any}) {
     const selectSong = (track: any) => {
         props.setSelectedSong(track)
     }
     return (
-        <div>
+        <div className='tracklist-container'>
             {props.searchResults.map((track: any, i: number) => {
                 return (
                     <div key={i} className="flex-row m-10" onClick={() => selectSong(track)}>
