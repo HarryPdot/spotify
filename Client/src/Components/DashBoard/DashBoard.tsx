@@ -63,17 +63,16 @@ export default function DashBoard(props: { code: any }) {
         })
     }, [accessToken])
 
-
     return (
         <div className='dashboard-container'>
             <SideBar setSearchWindow={setSearchWindow} setLikedSongsWindow={setLikedSongsWindow}></SideBar>
-            <div className='wh-100 flex-btwn'>
-                <div className='window'>
+            <section className='wh-100 flex-btwn'>
+                <li className='window'>
                     {searchWindow ? <SearchTab search={search} setSelectedSong={setSelectedSong} searchResults={searchResults} setSearch={setSearch}></SearchTab> : null}
                     {likedSongsWindow ? <LikedSongs setSelectedSong={setSelectedSong} likedSongs={likedSongs}></LikedSongs> : null}   
-                </div>
+                </li>
                 <Playback accessToken={accessToken} setPlaySong={setPlaySong} playSong={playSong} searchResults={searchResults} selectedSong={selectedSong}></Playback>
-            </div>
+            </section>
         </div>
     )
 }

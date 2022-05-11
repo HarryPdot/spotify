@@ -6,6 +6,9 @@
     flex-direction: row;
 
     position: relative;
+
+    background-color: rgb(18, 18, 18);
+    color: white;
 }
 
 .window {
@@ -22,4 +25,25 @@
 .flex-btwn {
     display: flex;
     flex-direction: column;
+}
+
+.window::-webkit-scrollbar {
+    width: .75em;
+}
+
+.window::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.window::-webkit-scrollbar-thumb {
+    background-color: rgb(87, 87, 87);
+    outline: 1px solid rgb(3, 14, 29);
+}
+
+.window::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(135, 135, 135);
+}
+
+.window::-webkit-scrollbar-thumb:active {
+    background-color: rgb(183, 183, 183);
 }

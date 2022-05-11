@@ -1,0 +1,14 @@
+.searchtab-container {
+    width: 250px;
+    height: 25px;
+    margin: 10px 0 0 10px;
+    border-radius: 25px;
+    padding: 5px 5px 5px 15px;
+}
+
+.searching-for {
+    font-size: 30px;
+    font-weight: 500;
+    margin: 10px 0 15px 0;
+}
+
