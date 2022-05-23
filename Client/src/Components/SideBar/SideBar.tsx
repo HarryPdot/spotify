@@ -1,16 +1,25 @@
 import "./SideBar.css"
 import { useState, useEffect } from 'react'
 
-export default function SideBar(props: {setSearchWindow: any, setLikedSongsWindow: any}) {
+export default function SideBar(props: {setSearchWindow: any, setLikedSongsWindow: any, playlist: any, setCurrentPlaylistId: any, setPlaylistWindow: any}) {
 
     const handleSearchWindow = () => {
         props.setSearchWindow(true)
         props.setLikedSongsWindow(false)
+        props.setPlaylistWindow(false)
     }
 
     const handleLikedSongsWindow = () => {
         props.setLikedSongsWindow(true)
         props.setSearchWindow(false)
+        props.setPlaylistWindow(false)
+    }
+
+    const handlePlaylistSong = (userPlaylist: any) => {
+        props.setLikedSongsWindow(false)
+        props.setSearchWindow(false)
+        props.setPlaylistWindow(true)
+        props.setCurrentPlaylistId(userPlaylist.id)
     }
 
     return(
@@ -28,10 +37,9 @@ export default function SideBar(props: {setSearchWindow: any, setLikedSongsWindo
                 </ul>
             </nav>
             <div className="SideBar-playlist">
-                <div>yes</div>
-                <div>yes</div>
-                <div>yes</div>
-                <div>yes</div>
+                {props.playlist.map((userPlaylist: any, i: number) => {
+                    return <div key={i} className='pointer playlist-color flex-row padding-3 hover-white' onClick={() => {handlePlaylistSong(userPlaylist)}}>{userPlaylist.name}</div>
+                })}
             </div>
         </div>
     )

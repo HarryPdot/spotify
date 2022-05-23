@@ -8,7 +8,7 @@ export default function Playback(props: {accessToken: any, searchResults: any, s
             <SpotifyPlayer 
             token={props.accessToken}
             showSaveIcon
-            uris={props.selectedSong ? [props.selectedSong.trackUri] : []}
+            uris={props.selectedSong ? [props.selectedSong] : []}
             play= {props.playSong ? true : false}
             callback={state => {
                 if(!state.isPlaying) {

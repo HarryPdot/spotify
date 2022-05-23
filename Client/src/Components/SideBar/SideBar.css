@@ -46,3 +46,19 @@
     padding-left: 10px;
     color: white;
 }
+
+.padding-3 {
+    padding: 3px 0 3px 0;
+}
+
+.playlist-color {
+    color: rgb(167, 167, 167);
+}
+
+.hover-white:hover {
+    color: white;
+}
+
+.pointer {
+    cursor: pointer;
+}
